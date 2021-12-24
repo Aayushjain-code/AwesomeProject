@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
-import { View, Text, StyleSheet, Image, Button, TouchableHighlight } from 'react-native';
+import { View, Text, StyleSheet, Image, ToastAndroid, Button, TouchableHighlight } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FlashMessage from "react-native-flash-message";
 
+
 const screen1 = () => {
-	const [Enable, setEnable] = useState("courses")
+	const [Enable, setEnable] = useState("courses");
+	const showToast = () => {
+		ToastAndroid.show("Congratulations! Order Placed Successfully", ToastAndroid.SHORT);
+	};
 	return (
 		<View style={styles.screen} >
 			{/* Render Product Component here */}
@@ -66,20 +70,16 @@ const screen1 = () => {
 						</Picker>
 					</View>
 
-					<TouchableHighlight style={styles.quantityButton} style={styles.newButtonStyle2} onPress={() => console.log("hello")} >
+					<TouchableHighlight style={styles.quantityButton} style={styles.newButtonStyle2} onPress={() => showToast()}>
 						<View style={styles.buttonStyle} style={{ flexDirection: 'row' }}>
 							<FontAwesome name="cart-arrow-down" size={20} color="#000000" style={{ marginRight: 8 }} />
 							<Text style={{ marginRight: 2, fontWeight: 'bold' }}>कार्ट में जोड़ें </Text>
-
 						</View>
 					</TouchableHighlight>
-
 				</View>
-
-
-
 			</View>
 		</View>
+
 	)
 }
 
