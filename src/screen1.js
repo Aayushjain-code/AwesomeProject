@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, StyleSheet, Image, Button, TouchableHighlight } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import FlashMessage from "react-native-flash-message";
+
 const screen1 = () => {
+	const [Enable, setEnable] = useState("courses")
 	return (
 		<View style={styles.screen} >
 			{/* Render Product Component here */}
@@ -17,7 +21,7 @@ const screen1 = () => {
 				</View>
 				<View style={styles.productDetails}>
 					<View>
-						<Text style={styles.heading} numberOfLines={2}>झंडू बाम | प्राकृतिक रूप से दर्द में आराम</Text>
+						<Text style={styles.heading} >झंडू बाम | प्राकृतिक रूप से दर्द में आराम</Text>
 					</View>
 					{/* Price */}
 					<View style={styles.priceFont}>
@@ -26,7 +30,7 @@ const screen1 = () => {
 							₹50/-
 						</Text>
 						<Text style={styles.price2}>
-							60/-
+							₹60/-
 						</Text>
 
 
@@ -42,14 +46,27 @@ const screen1 = () => {
 					{/* <TouchableHighlight style={styles.quantityButton}>
 						<Button style={styles.buttonStyle} title='कार्ट में जोड़ें' />
 					</TouchableHighlight> */}
-					<TouchableHighlight style={styles.quantityButton} style={styles.newButtonStyle} >
+					{/* <TouchableHighlight style={styles.quantityButton} style={styles.newButtonStyle} >
 						<View style={styles.buttonStyle} style={{ flexDirection: 'row' }}>
 							<FontAwesome name="money" size={20} color="#000000" style={{ marginRight: 8 }} />
 							<Text style={{ marginRight: 8, fontWeight: 'bold' }} >ख़रीदे</Text>
 
 						</View>
-					</TouchableHighlight>
-					<TouchableHighlight style={styles.quantityButton} style={styles.newButtonStyle2} >
+					</TouchableHighlight> */}
+					<View style={styles.container}>
+						<Picker
+							selectedValue={Enable}
+							style={{ height: 10, width: 150, }}
+							mode={"dialog"}
+							onValueChange={(itemValue) => setEnable(itemValue)}
+						>
+							<Picker.Item label="1 for ₹50/- " />
+							<Picker.Item label="2 for ₹95/-" />
+							<Picker.Item label="3 for ₹140/-" />
+						</Picker>
+					</View>
+
+					<TouchableHighlight style={styles.quantityButton} style={styles.newButtonStyle2} onPress={() => console.log("hello")} >
 						<View style={styles.buttonStyle} style={{ flexDirection: 'row' }}>
 							<FontAwesome name="cart-arrow-down" size={20} color="#000000" style={{ marginRight: 8 }} />
 							<Text style={{ marginRight: 2, fontWeight: 'bold' }}>कार्ट में जोड़ें </Text>
@@ -67,6 +84,16 @@ const screen1 = () => {
 }
 
 const styles = StyleSheet.create({
+	container: {
+		flex: 10,
+		alignItems: 'center',
+		justifyContent: 'center',
+		borderWidth: 1,
+		borderColor: '#E20147',
+		borderRadius: 5,
+		marginLeft: 5,
+
+	},
 	newButtonStyle: {
 		backgroundColor: 'green',
 		borderRadius: 5,
