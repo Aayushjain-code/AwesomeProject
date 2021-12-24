@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { View, Text, StyleSheet, Image, ToastAndroid, Button, TouchableHighlight } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import FlashMessage from "react-native-flash-message";
 
 
 const screen1 = () => {
@@ -157,9 +156,9 @@ const styles = StyleSheet.create({
 		backgroundColor: '#fff',
 	},
 	root: {
-		marginLeft: 50,
+		marginLeft: 10,
 		borderWidth: 2,
-		marginTop: 250,
+		marginTop: 10,
 		backgroundColor: '#fff',
 		borderRadius: 5,
 

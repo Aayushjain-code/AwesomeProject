@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import {
   Button,
   SafeAreaView,
+  ScrollView,
   StatusBar,
   StyleSheet,
   Text,
@@ -23,7 +24,15 @@ const App = () => {
   return (
     <SafeAreaView >
       <StatusBar backgroundColor="blue" barStyle="light-content" />
-      <HomeComponent />
+      <ScrollView>
+        <HomeComponent />
+        <HomeComponent />
+        <HomeComponent />
+        <HomeComponent />
+        <HomeComponent />
+      </ScrollView>
+
+
     </SafeAreaView>
   );
 };
