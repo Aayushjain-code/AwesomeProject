@@ -18,22 +18,17 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import HomeComponent from './src/screen1.js';
+import Home from './src/Screens/Home';
 
 const App = () => {
 
   return (
-    <SafeAreaView >
-      <StatusBar backgroundColor="blue" barStyle="light-content" />
-      <ScrollView>
-        <HomeComponent />
-        <HomeComponent />
-        <HomeComponent />
-        <HomeComponent />
-        <HomeComponent />
-      </ScrollView>
 
 
-    </SafeAreaView>
+    < View >
+      < Home />
+    </View >
+
   );
 };
 
